@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS スキルチェック</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-wrap">
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="logo">Skill Assessment</div>
+    <h1>JavaScript スキルチェック</h1>
+    <p>回答結果をもとにJSの習熟度を判定します</p>
+  </header>
+
+  <!-- ── スタート画面 ── -->
+  <div id="screen-start" class="screen">
+    <div class="start-hero">
+      <div class="start-icon">⚡</div>
+      <h2>スキルヒアリング開始</h2>
+      <p>
+        基礎文法・関数・非同期処理・ES6+・DOM操作・エラー処理の<br>
+        6カテゴリから全 30 問出題します。<br>
+        各問に解説付きなので、学習にも活用できます。
+      </p>
+    </div>
+
+    <div class="start-info">
+      <div class="info-card">
+        <span class="info-num">30</span>
+        <span class="info-label">問</span>
+      </div>
+      <div class="info-card">
+        <span class="info-num">6</span>
+        <span class="info-label">カテゴリ</span>
+      </div>
+      <div class="info-card">
+        <span class="info-num">3</span>
+        <span class="info-label">難易度レベル</span>
+      </div>
+    </div>
+
+    <div class="category-list">
+      <span class="cat-chip">基礎文法</span>
+      <span class="cat-chip">関数・スコープ</span>
+      <span class="cat-chip">非同期処理</span>
+      <span class="cat-chip">ES6+</span>
+      <span class="cat-chip">DOM操作</span>
+      <span class="cat-chip">エラー処理</span>
+    </div>
+
+    <button id="btn-start" class="btn btn-primary">スタート →</button>
+  </div>
+
+  <!-- ── クイズ画面 ── -->
+  <div id="screen-quiz" class="screen">
+    <div class="progress-wrap">
+      <div class="progress-head">
+        <span>進捗</span>
+        <span id="progress-text">1 / 30</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div id="progress-bar-fill" class="progress-bar-fill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="quiz-meta">
+        <span id="q-number" class="q-number">Q1</span>
+        <span id="q-category" class="badge">カテゴリ</span>
+        <span id="q-level" class="badge level-beginner">初級</span>
+      </div>
+
+      <p id="q-text" class="q-text"></p>
+
+      <div id="q-choices" class="choices"></div>
+
+      <div id="q-explanation" class="explanation hidden"></div>
+
+      <div class="quiz-actions">
+        <button id="btn-next" class="btn btn-primary" disabled style="width:auto; padding: 12px 28px;">
+          次の問題 →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 結果画面 ── -->
+  <div id="screen-result" class="screen">
+    <div class="result-hero">
+      <div id="result-score" class="result-score-num">0点</div>
+      <div id="result-correct" class="result-correct-label">0 / 30 問正解</div>
+
+      <div class="result-level-label">あなたのレベル</div>
+      <div id="result-level" class="result-level-value">―</div>
+
+      <div class="result-level-bar-bg">
+        <div id="result-level-bar" class="result-level-bar-fill" style="width:0%"></div>
+      </div>
+
+      <p id="result-desc" class="result-desc"></p>
+    </div>
+
+    <!-- カテゴリ別スコア -->
+    <div class="card mb-20">
+      <div class="section-title">カテゴリ別スコア</div>
+      <div id="category-breakdown"></div>
+    </div>
+
+    <!-- 間違えた問題 -->
+    <div id="wrong-section" class="card mb-20">
+      <div class="section-title">間違えた問題の振り返り</div>
+      <div id="wrong-answers"></div>
+    </div>
+
+    <div class="result-actions">
+      <button id="btn-restart" class="btn btn-primary">もう一度チャレンジ</button>
+    </div>
+  </div>
+
+</div><!-- /.app-wrap -->
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
